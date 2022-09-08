@@ -1,16 +1,9 @@
 
 # Print the pattern
 
-for ln in range(2, 7):
-    for n in range(1, ln):
-        if n == ln-1:
-            print('*')
-        else:
-            print('*', end=' ')
-
-for ln in range(5, 0, -1):
-    for n in range(1, ln): 
-        if n==ln-1:
-            print('*')
-        else:
-            print('*', end=' ')
+for l in range(5):
+    print('* '*l, end='')
+    print('*')
+for l in range(3,-1,-1):
+    print('* '*l, end='')
+    print('*')
