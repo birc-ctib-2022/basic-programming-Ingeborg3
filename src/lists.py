@@ -1,13 +1,15 @@
 import sys
 
-# This reads all of stdin and converts it into a list of integers.
-# This *only* works if there are no non-integers in the input.
+# The below reads all of stdin and converts it into a list of integers.
+# This *only* works if there are no non-integers (i.e., if only 
+# strings with numbers are found) in the input.
 # You can learn how to deal with errors later...
-x = [int(a) for a in sys.stdin.read().split()]
+x = [int(a) for a in sys.stdin.read().split()] 
 
 # if you have a list of integers you want to write to stdout in the same
-# space separated format, you cannot use print(x) since that will add the
-# square brackets and the commas, but you can use
+# space separated format (without [] and ,), you cannot use print(x) since that will add 
+# the square brackets and the commas (assuming x is a list), but you 
+# can use
 #
 # print(" ".join(str(i) for i in x))
 #
@@ -39,20 +41,30 @@ if len(sys.argv) < 2:
     print("Incorrect number of arguments.", file=sys.stderr)
     sys.exit(1)
 
-match sys.argv[1]:
+match sys.argv[1]: # sys.argv[1] is a list. 
     case "mean":
         # put your solution to the first exercise here
-        mean = "mean of x"
+        total = 0
+        length = 0
+        for n in sys.argv[1]:
+            total += n
+            length += 1
+        mean = total/length
         print(mean)
 
     case "times":
         # Put your solution to the second exercise here
         times_three = []
+        for n in sys.argv[1]:
+            times_three.append(n*3)
         print_list(times_three)
 
     case "even":
         # Put your solution to the third exercise here
         even = []
+        for n in sys.argv[1]:
+            if n % 2 == 0:
+                even.append(n)
         print_list(even)
 
     case _:
